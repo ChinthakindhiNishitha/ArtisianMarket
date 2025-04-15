@@ -1,0 +1,47 @@
+/* LoginPage.css */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/050/808/843/large_2x/bustling-outdoor-craft-and-artisan-market-of-handmade-products-traditional-artisanal-goods-photo.jpeg'); /* Add your image to public/images */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+  }
+  
+  form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    max-width: 350px;
+    margin: auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #f472b6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #ec4899;
+  }
+  

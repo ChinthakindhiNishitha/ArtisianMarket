@@ -1,0 +1,38 @@
+.map-wrapper {
+    position: relative;
+  }
+  
+  .search-bar {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 10px;
+  }
+  
+  .search-bar input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 250px;
+  }
+  
+  .search-bar button {
+    padding: 8px 12px;
+    background-color: #3876bf;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .search-bar button:hover {
+    background-color: #2b5fa1;
+  }
+  

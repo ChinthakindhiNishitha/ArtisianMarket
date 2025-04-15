@@ -1,0 +1,57 @@
+/* Background and main content */
+.home-background {
+    background-image: url('https://static.vecteezy.com/system/resources/previews/050/808/848/non_2x/bustling-outdoor-craft-and-artisan-market-of-handmade-products-traditional-artisanal-goods-photo.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: white;
+    position: relative;
+  }
+  
+  .home-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem 3rem;
+    border-radius: 10px;
+  }
+  
+  /* Navbar styles */
+  .navbar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 2rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid white;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-btn:hover {
+    background-color: white;
+    color: black;
+  }
+  
+  .signup {
+    font-weight: bold;
+  }
+  
