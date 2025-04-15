@@ -2,49 +2,54 @@
 // SIGNUP Controller
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
-const Product = require('../models/Product'); // add this
+const Product = require('../models/Product');
 
-// SIGNUP Controller
 const signupUser = async (req, res) => {
   const { username, email, password, role, product } = req.body;
 
   try {
-    // Check if user already exists
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ message: 'User already exists' });
-    }
-
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create new user (without product info here)
+    // Create the user
     const newUser = new User({
       username,
       email,
       password: hashedPassword,
-      role
+      role,
     });
 
-    const savedUser = await newUser.save();
+    await newUser.save();
+    console.log(`Received role: ${role}`);
 
-    // If artisan, save product separately
+    // If artisan, save product as well
     if (role === 'artisan' && product) {
       const newProduct = new Product({
-        ...product,
-        artisan: savedUser._id // associate product with user
+        artisan: newUser._id,
+        productType: product.productType,
+        productName: product.productName,
+        imageUrl: product.imageUrl,
+        location: product.location,
+        price: product.price,
       });
 
       await newProduct.save();
+      console.log('✅ Product saved for artisan:', newProduct);
     }
 
-    res.status(201).json({ message: 'User and product created successfully', user: savedUser });
+    res.status(201).json({ message: 'User registered successfully' });
 
-  } catch (err) {
-    console.error('Signup error:', err);
-    res.status(500).json({ message: err.message });
+  } catch (error) {
+    if (error.code === 11000) {
+      console.error('Signup error: Duplicate email');
+      res.status(400).json({ error: 'Email already exists. Please use a different email.' });
+    } else {
+      console.error('Signup error:', error);
+      res.status(500).json({ error: 'Signup failed. Please try again later.' });
+    }
   }
 };
+
 
 
 // LOGIN Controller

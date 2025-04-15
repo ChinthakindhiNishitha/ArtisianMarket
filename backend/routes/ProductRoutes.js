@@ -1,4 +1,5 @@
 
+
 const express = require('express');
 const router = express.Router();
 const { getProductsByType, createProduct,createBulkProducts } = require('../controllers/productController');
@@ -16,4 +17,3 @@ router.post('/', createProduct);
 router.post('/bulk', createBulkProducts);
 
 module.exports = router;
-
