@@ -1,18 +1,43 @@
-import { useLocation } from 'react-router-dom';
+// src/pages/ArtisanPage.jsx
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-export default function ArtisanPage() {
-  const { state } = useLocation();
-  const { username, product } = state;
+const ArtisanPage = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const artisanId = localStorage.getItem('userId');
+
+    const fetchProducts = async () => {
+      try {
+        const res = await axios.get(`http://localhost:5000/api/products/artisan/${artisanId}`);
+        setProducts(res.data);
+      } catch (err) {
+        console.error('Error fetching artisan products:', err);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   return (
-    <div>
-      <h2>Welcome {username}</h2>
-      <h3>Product Details:</h3>
-      <p><strong>Type:</strong> {product.productType}</p>
-      <p><strong>Name:</strong> {product.productName}</p>
-      <p><strong>Price:</strong> ₹{product.price}</p>
-      <p><strong>Location:</strong> {product.location}</p>
-      <img src={product.imageUrl} alt={product.productName} width="200" />
+    <div className="artisan-dashboard">
+      <h2>My Product</h2>
+      {products.length === 0 ? (
+        <p>No product found.</p>
+      ) : (
+        products.map((product) => (
+          <div key={product._id} className="product-card">
+            <img src={product.imageUrl} alt={product.productName} />
+            <h3>{product.productName}</h3>
+            <p>Type: {product.productType}</p>
+            <p>Location: {product.location}</p>
+            <p>Price: ₹{product.price}</p>
+          </div>
+        ))
+      )}
     </div>
   );
-}
+};
+
+export default ArtisanPage;

@@ -1,9 +1,11 @@
+/* Login.css */
+
 /* LoginPage.css */
 
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background-image: url('https://static.vecteezy.com/system/resources/previews/050/808/843/large_2x/bustling-outdoor-craft-and-artisan-market-of-handmade-products-traditional-artisanal-goods-photo.jpeg'); /* Add your image to public/images */
+    background-image: url('https://static.vecteezy.com/system/resources/previews/051/071/330/non_2x/abstract-horizontal-watercolor-dark-cloud-background-hand-drawn-texture-brush-stroked-painting-pastel-color-watercolour-vector.jpg'); /* Add your image to public/images */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -32,7 +34,7 @@ body {
   
   button {
     padding: 10px;
-    background-color: #f472b6;
+    background-color: #72aff4;
     color: white;
     border: none;
     border-radius: 8px;
@@ -42,6 +44,19 @@ body {
   }
   
   button:hover {
-    background-color: #ec4899;
+    background-color: #6948ec;
+  }
+  .login-title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .login-message {
+    text-align: center;
+    color: #2e7d32;
+    font-weight: 500;
   }
   
